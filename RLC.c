@@ -3,51 +3,56 @@
 
 void inputRLC ()
 {
-    double R, L, C, t, V;
+    double R;
+    double L;
+    double C;
+    double t;
+    double V;
     printf("Masukkan nilai resistor : ");
-    scanf("%lf", R);
+    scanf("%lf", &R);
     while(R<0)
     {
         printf("Input salah silakan masukan input ulang!!\n");
         printf("Masukkan nilai resistor : ");
-        scanf("%lf", R);
+        scanf("%lf", &R);
     }
     printf("Masukkan nilai induktor : ");
-    scanf("%lf", L);
+    scanf("%lf", &L);
     while(L<0)
     {
         printf("Input salah silakan masukan input ulang!!\n");
         printf("Masukkan nilai induktor : ");
-        scanf("%lf", L);
+        scanf("%lf", &L);
     }
     printf("Masukkan nilai kapasitor : ");
-    scanf("%lf", C);
+    scanf("%lf", &C);
     while(C<0)
     {
         printf("Input salah silakan masukan input ulang!!\n");
         printf("Masukkan nilai kapasitor : ");
-        scanf("%lf", C);
+        scanf("%lf", &C);
     }
     printf("Masukkan nilai sumber tegangan : ");
-    scanf("%lf", V);
+    scanf("%lf", &V);
     while(V<0)
     {
         printf("Input salah silakan masukan input ulang!!\n");
         printf("Masukkan nilai sumber tegangan : ");
-        scanf("%lf", V);
+        scanf("%lf", &V);
     }
     printf("Masukkan durasi perhitungan dalam mikrosecond : ");
-    scanf("%lf", t);
+    scanf("%lf", &t);
     while(t<0)
     {
         printf("Input salah silakan masukan input ulang!!\n");
         printf("Masukkan durasi perhitungan dalam mikrosecond : ");
-        scanf("%lf", t);
+        scanf("%lf", &t);
     }
+    return;
 }
-
-void hitungRLC(double R, double L, double C, double V, int t)
+void hitungRLC(double R, double L, double C, double t,double V)
 {
+    inputRLC();
     double vt, vss, vc;
     double omega = 1/sqrt(L*C);
     double alpha = R/(2*L);
@@ -77,7 +82,19 @@ void hitungRLC(double R, double L, double C, double V, int t)
     }
 
     vc = vss+vt;
-    printf("Tegangan output = %lf\n, ", vt);
-    
+    printf("Tegangan output = %.4lf\n ", vt);
+    return;
 }
 
+int main ()
+{
+    double R;
+    double L;
+    double C ;
+    double  t;
+    double V;
+
+    hitungRLC(R, L, C, t, V);
+
+    return (0);
+}
