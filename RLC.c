@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
-void inputRLC (double *R, double *L, double *C, double *V, int *t)
+void inputRLC ()
 {
+    double R, L, C, t, V;
     printf("Masukkan nilai resistor : ");
     scanf("%lf", R);
     while(R<0)
@@ -45,7 +46,7 @@ void inputRLC (double *R, double *L, double *C, double *V, int *t)
     }
 }
 
-void hitungRLC(double *R, double *L, double *C, double *V, int *t)
+void hitungRLC(double R, double L, double C, double V, int t)
 {
     double vt, vss, vc;
     double omega = 1/sqrt(L*C);
@@ -58,7 +59,7 @@ void hitungRLC(double *R, double *L, double *C, double *V, int *t)
     
     if(alpha > omega)
     {   
-        A2 = (((1/C)*io)+vss*s1)/(-s1+s2));
+        A2 = (((1/C)*io)+vss*s1)/(-s1+s2);
         A1 = -A2-vss;
         vt = (A1*exp(s1*t))+(A2*exp(s2*t));
     }
@@ -79,3 +80,4 @@ void hitungRLC(double *R, double *L, double *C, double *V, int *t)
     printf("Tegangan output = %lf\n, ", vt);
     
 }
+
