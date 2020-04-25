@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+
+
 void inputRLC ()
 {
     double R;
@@ -57,44 +59,37 @@ void hitungRLC(double R, double L, double C, double t,double V)
     double omega = 1/sqrt(L*C);
     double alpha = R/(2*L);
     double s1, s2, A1, A2;
-    double io = V/R;
     s1= -alpha + sqrt((alpha*alpha)-(omega*omega));
     s2= -alpha - sqrt((alpha*alpha)-(omega*omega));
     vss = V;
+    int i;
     
-    if(alpha > omega)
-    {   
-        A2 = (((1/C)*io)+vss*s1)/(-s1+s2);
-        A1 = -A2-vss;
-        vt = (A1*exp(s1*t))+(A2*exp(s2*t));
-    }
-    else if(alpha == omega)
+    for (i = 0; i <= t; i++)
     {
-        A1 = -vss;
-        A2 = ((1/C)*io)+2*alpha+vss;
-        vt = (A1+(A2*t))*(exp(-alpha*t));
+        if(alpha > omega)
+        {   
+            A1 = vss / ((s1/s2)-1);
+            A2 = vss / ((s2/s1)-1);
+            vt = (A1*exp(s1*i))+(A2*exp(s2*i));
+        }
+        else if(alpha == omega)
+        {
+            A1 = alpha*(-vss);
+            A2 = -vss;
+            vt = (A1+(A2*i))*(exp(-alpha*i));
+        }
+        else
+        {
+            vt = - (vss*(exp(-alpha*i))*cos(omega*i)-((-alpha/omega)*sin(omega*i)));
+        }
     }
-    else
+    for (i = 0; i<= t; i++)
     {
-        A1 = -vss;
-        A2 = ((1/C)*io)/(omega*-alpha);
-        vt = ((A1*cos(omega*t))+(A2*sin(omega*t)))*(exp(-alpha*t));
+        vc = vss+vt;
+        printf("%d", i);
+        printf("%lf\n", vc);
     }
 
-    vc = vss+vt;
-    printf("Tegangan output = %.4lf\n ", vt);
-    return;
-}
-
-int main ()
-{
-    double R;
-    double L;
-    double C ;
-    double  t;
-    double V;
-
-    hitungRLC(R, L, C, t, V);
-
-    return (0);
+        return;
+    
 }
