@@ -1,57 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-
-
-/*void inputRLC ()
-{
-    double R;
-    double L;
-    double C;
-    double t;
-    double V;
-    printf("Masukkan nilai resistor : ");
-    scanf("%lf", &R);
-    while(R<0)
-    {
-        printf("Input salah silakan masukan input ulang!!\n");
-        printf("Masukkan nilai resistor : ");
-        scanf("%lf", &R);
-    }
-    printf("Masukkan nilai induktor : ");
-    scanf("%lf", &L);
-    while(L<0)
-    {
-        printf("Input salah silakan masukan input ulang!!\n");
-        printf("Masukkan nilai induktor : ");
-        scanf("%lf", &L);
-    }
-    printf("Masukkan nilai kapasitor : ");
-    scanf("%lf", &C);
-    while(C<0)
-    {
-        printf("Input salah silakan masukan input ulang!!\n");
-        printf("Masukkan nilai kapasitor : ");
-        scanf("%lf", &C);
-    }
-    printf("Masukkan nilai sumber tegangan : ");
-    scanf("%lf", &V);
-    while(V<0)
-    {
-        printf("Input salah silakan masukan input ulang!!\n");
-        printf("Masukkan nilai sumber tegangan : ");
-        scanf("%lf", &V);
-    }
-    printf("Masukkan durasi perhitungan dalam mikrosecond : ");
-    scanf("%lf", &t);
-    while(t<0)
-    {
-        printf("Input salah silakan masukan input ulang!!\n");
-        printf("Masukkan durasi perhitungan dalam mikrosecond : ");
-        scanf("%lf", &t);
-    }
-    return;
-}*/
 void hitungRLC()
 {
     double R, V, t, L, C;
@@ -97,6 +46,7 @@ void hitungRLC()
         printf("Masukkan durasi perhitungan dalam mikrosecond : ");
         scanf("%lf", &t);
     }
+
 
     double omega = 1/sqrt(L*C);
     double alpha = R/(2*L);
