@@ -83,8 +83,8 @@ void hitungRLC()
         {
             vt = - (vss*(exp(-alpha*i))*cos(omega*i)-((-alpha/omega)*sin(omega*i)));
             vc = vss+vt;
-            printf("%lf ", i);
-            printf("%lf\n", vc);
+            printf("Pada waktu %lf ", i);
+            printf("tegangan pada kapasitor = %lf\n", vc);
             i = i+ 0.000001;
         }
     }
