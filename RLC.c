@@ -64,8 +64,8 @@ void hitungRLC()
             A2 = vss / ((s2/s1)-1);
             vt = (A1*exp(s1*i))+(A2*exp(s2*i));
             vc = vss+vt;
-            printf("%lf ", i);
-            printf("%lf\n", vc);
+            printf("Pada waktu %lf ", i);
+            printf("tegangan pada kapasitor = %lf\n", vc);
             i = i+ 0.000001;
 
         }
@@ -75,8 +75,8 @@ void hitungRLC()
             A2 = -vss;
             vt = (A1+(A2*i))*(exp(-alpha*i));
             vc = vss+vt;
-            printf("%lf ", i);
-            printf("%lf\n", vc);
+            printf("Pada waktu %lf ", i);
+            printf("tegangan pada kapasitor = %lf\n", vc);
             i = i+ 0.000001;
         }
         else
